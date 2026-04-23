@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- daisyUi + tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-gray-100">
+    <header class="shadow-md bg-white">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center w-11/12 mx-auto pt-5 pb-5 gap-4"
+      >
+        <!-- Left -->
+        <div class="flex items-center gap-2">
+          <img
+            class="w-10 h-10 object-contain"
+            src="./images/github-logo.png"
+            alt=""
+          />
+          <h2 class="text-sm sm:text-lg md:text-xl font-semibold">
+            GitHub Issues Tracker
+          </h2>
+        </div>
+
+        <!-- Right -->
+        <div
+          class="flex flex-col sm:flex-row items-center gap-2 w-full md:w-auto"
+        >
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered w-full sm:w-auto"
+          />
+          <button class="btn btn-primary w-full sm:w-auto">
+            <span><i class="fa-solid fa-plus"></i></span> New Issues
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="w-3/4 mx-auto">
+      <div class="mt-8 bg-white shadow-sm pt-4 pb-4 pl-4">
+        <button
+          id="all-btn"
+          onclick="loadAllIssues()"
+          class="btn btn-outline btn-primary Active"
+        >
+          All
+        </button>
+        <button
+          id="open-btn"
+          onclick="loadOpenIssues()"
+          class="btn btn-outline btn-primary"
+        >
+          Open
+        </button>
+        <button
+          id="close-btn"
+          onclick="loadClosedIssues()"
+          class="btn btn-outline btn-primary"
+        >
+          Closed
+        </button>
+      </div>
+    </section>
+    <section class="w-3/4 mt-5 mx-auto">
+      <div
+        id="totalCount"
+        class="bg-white shadow-sm flex justify-between pl-5 pr-5 mx-auto pt-3 pb-3"
+      ></div>
+    </section>
+    <section id="spinn" class="justify-center flex hidden">
+      <span class="loading loading-bars loading-xl"></span>
+    </section>
+    <section class="w-3/4 mx-auto mt-5 bg-white">
+      <div
+        id="Issues-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-5"
+      ></div>
+    </section>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="details-container"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn btn-primary">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    <script src="./js/home.js"></script>
+  </body>
+</html>
